@@ -22,8 +22,11 @@ def home(request):
         # print(step)
         
         # Calculate the y and x increment
-        y_inc = dy/step
-        x_inc = dx/step
+        if step == 0:
+            return (0, 0)
+        else:
+            y_inc = dy/step
+            x_inc = dx/step
 
         #create a loop with a range of steps while adding the increment values starting from (x1, y1)
         
@@ -42,8 +45,7 @@ def home(request):
                 xp.append(round(x1))
                 yp.append(round(y1))
                 # print the results and round them to the nearest whole number
-                print(round(x1), round(y1))
-        
+        return (xp, yp)
     if request.method == 'POST':
         form = AdditionForm(request.POST)
         if form.is_valid():
@@ -52,12 +54,18 @@ def home(request):
             y1 = form.cleaned_data['number3']
             y2 = form.cleaned_data['number4']
 
-            result = DDA(x1, x2, y1, y2)
 
+            result = DDA(x1, x2, y1, y2)
     else:
         form = AdditionForm()
 
-    return render(request, 'home.html',{'form':form, 'result':result})
+    context = {
+        'resultx': result[0],
+        'resulty': result[1],
+        'form':form,
+    }
+
+    return render(request, 'home.html', context)
 
 
 def brensenham(request):
