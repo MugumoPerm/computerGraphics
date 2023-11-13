@@ -1,0 +1,6 @@
+.button{
+	outline: 1px solid white;
+	background-color: blue;
+	padding: .5rem .85rem;
+	color: white;
+}
