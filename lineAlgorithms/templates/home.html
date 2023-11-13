@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Addition Calculator</title>
-</head>
-<body>
-    <h1>Addition Calculator</h1>
+{% extends 'layout.html'  %}
+{% load static %}
+
+{% block title%}DDA Line{% endblock %}
+{% block styles %} <link rel="stylesheet" href="{% static 'styles.css' %}">{% endblock %}
+{% block body%}
+{%block header %} DDA Line Drawing {% endblock %}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
@@ -14,6 +14,9 @@
         <h2>X: {{ resultx }}</h2>
 	<h2>Y: {{ resulty}} </h2>
     {% endif %}
-</body>
-</html>
+
+    {{ chart|safe }}
+    {% block script %}<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>{% endblock %}
+{% endblock %}
+
 

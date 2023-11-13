@@ -1,12 +1,13 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>{% block title  %}{% endblock  %}</title>
     <meta name="description" content="A simple HTML5 Boilerplate template">
-    <link rel="stylesheet" href="styles.css">
+    {% block styles %}{% endblock %}
 </head>
 <body>
     <header>
@@ -26,8 +27,9 @@
    
     </main>
     <footer>
-        <p>&copy; 2023 Your Name</p>
+        <p>&copy; 2023 Permo</p>
     </footer>
+    {% block script %}{% endblock %}
 </body>
 </html>
 

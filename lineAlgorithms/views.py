@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from .forms import AdditionForm
-from .test import t
+import plotly.express as px
+import pandas as pd
 # Create your views here.
 
 def home(request):
@@ -58,14 +59,49 @@ def home(request):
             result = DDA(x1, x2, y1, y2)
     else:
         form = AdditionForm()
+   
+    if result is not None and len(result) >= 2:
+        data = {
+          'x': result[0],
+          'y': result[1]
+            }
+        df = pd.DataFrame(data)
 
-    context = {
+        fig = px.line(
+            df,
+            x= 'x',
+            y= 'y',
+            title='DDA',
+            labels={'x':'x-axis', 'y':'y-axis'},
+            )
+
+        fig.update_layout(
+               title={
+                   'font_size':22,
+                   'xanchor': 'center',
+                   'x': 0.5
+                   },
+               plot_bgcolor='lightblue',
+               paper_bgcolor='lightblue'
+                )
+        chart = fig.to_html()
+
+        context = {
         'resultx': result[0],
         'resulty': result[1],
         'form':form,
+        'chart':chart,
     }
+    else:
+        context = {
+        'resultx': None,
+        'resulty': None,
+        'form': form,
+                }
 
-    return render(request, 'home.html', context)
+    
+    return render(request, 'home.html', context
+                 )
 
 
 def brensenham(request):
