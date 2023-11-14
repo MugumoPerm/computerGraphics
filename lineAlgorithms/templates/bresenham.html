@@ -10,9 +10,9 @@
 {% block body%}
     <form method="post">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Calculate">
-    </form>
+        {{ form }}
+        <input type="submit" value="Calculate" class="submit-btn">
+   </form>
     {% if resultx %}
     	<h1> Coordinates: {{ coordinates }}</h1>
         <h2>X: {{ resultx }}</h2>

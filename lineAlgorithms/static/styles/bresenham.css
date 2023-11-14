@@ -4,10 +4,36 @@
 	padding: .5rem .85rem;
 	color: white;
 	text-decoration: none;
-	border-radius: 10%;
+	border-radius: .5rem;
+
 }
 .button:hover{
 	opacity: .8;
 	color: limegreen;
 }
 
+form {
+	background-color: #e549d0;
+	padding: 1rem 1.75rem;
+	border-radius: .5rem;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-direction: column;
+}
+
+form input {
+	border: none;
+	outline: none;
+	padding: .5rem .75rem;
+	/* align-self: left; */
+	border-radius: .25rem;
+}
+
+form input:last-child {
+	margin-top: .95rem;
+}
+
+.submit-btn {
+	width: 100%;
+}
