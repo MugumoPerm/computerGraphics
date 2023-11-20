@@ -137,8 +137,8 @@ def bresenham(request):
         form = AdditionForm(request.POST)
         if form.is_valid():
             x1 = form.cleaned_data['number1']
-            x2 = form.cleaned_data['number2']
-            y1 = form.cleaned_data['number3']
+            y1 = form.cleaned_data['number2']
+            x2 = form.cleaned_data['number3']
             y2 = form.cleaned_data['number4']
 
 

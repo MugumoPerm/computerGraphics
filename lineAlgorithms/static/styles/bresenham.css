@@ -1,13 +1,14 @@
 .button{
 	outline: 1px solid white;
-	background: linear-gradient(45deg, #ee6c4d, transparent);
+	/*background: linear-gradient(45deg, #ee6c4dbd, #ee6c4d, #ee6c4d78);*/
+	background-color: #5151d55c;
 	padding: .5rem .85rem;
-	color: white;
+	color: #5151d55c;
 	text-decoration: none;
 	border-radius: 10%;
 }
 .button:hover{
-	opacity: .8;
-	color: limegreen;
+	background-color: transparent;
+	color: white;
 }
 

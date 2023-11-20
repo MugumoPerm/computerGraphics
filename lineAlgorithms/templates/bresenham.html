@@ -6,14 +6,13 @@
 
 {%block header %} Brensenham Line Drawing {% endblock %}
 {% block navlinks %}<a href="{% url 'DDA' %}" class='button'>DDA</a>{% endblock%}
-{% block heading %} Bresenham line Drawing {% endblock %}
 {% block body%}
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Calculate">
     </form>
-    {% if resultx %}
+    {% if resultx or coordinates %}
     	<h1> Coordinates: {{ coordinates }}</h1>
         <h2>X: {{ resultx }}</h2>
 	<h2>Y: {{ resulty}} </h2>
