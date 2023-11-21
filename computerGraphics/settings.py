@@ -31,12 +31,13 @@ ALLOWED_HOSTS = ["172.17.0.1","192.168.16.100","127.0.0.1","192.168.16.1","192.1
 # Application definition
 
 INSTALLED_APPS = [
-
+    # default apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'livereload',
     'django.contrib.staticfiles',
     
     # custom apps
@@ -51,7 +52,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+    # live reload
+    'livereload.middleware.LiveReloadScript',
+    ]
+
 
 ROOT_URLCONF = 'computerGraphics.urls'
 
