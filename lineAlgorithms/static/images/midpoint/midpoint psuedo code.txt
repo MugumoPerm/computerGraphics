@@ -1,0 +1,35 @@
+function draw_circle(radius):
+    x = radius
+    y = 0
+    p = 1 - radius  // Initial decision parameter
+
+    points = [(x, y)]  // Store the points of the circle
+
+    while x > y:
+        y = y + 1
+
+        // Mid-point is inside or on the perimeter of the circle
+        if p <= 0:
+            p = p + 2 * y + 1
+        else:  // Mid-point is outside the perimeter of the circle
+            x = x - 1
+            p = p + 2 * (y - x) + 1
+
+        // All the perimeter points have already been recorded
+        if x < y:
+            break
+
+        points.append((x, y))
+        points.append((-x, y))
+        points.append((x, -y))
+        points.append((-x, -y))
+
+        // If the generated point is on the line y = x, then
+        // the perimeter points have already been recorded
+        if x != y:
+            points.append((y, x))
+            points.append((-y, x))
+            points.append((y, -x))
+            points.append((-y, -x))
+
+    return points

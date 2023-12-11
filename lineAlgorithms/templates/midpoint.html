@@ -1,11 +1,11 @@
 {% extends 'layout.html'  %}
 {% load static %}
 
-{% block title%}Bresenham Line{% endblock %}
+{% block title%}midpoint circle{% endblock %}
 {% block styles %} <link rel="stylesheet" href="{% static 'styles/bresenham.css' %}">{% endblock %}
 
-{%block header %} Brensenham Line Drawing {% endblock %}
-{% block navlinks %}<a href="{% url 'midpoint' %}" class='button'>midpoint</a>{% endblock%}
+{%block header %} midpoint circle {% endblock %}
+{% block navlinks %}<a href="{% url 'DDA' %}" class='button'>DDA</a>{% endblock%}
 {% block body%}
     <form method="post">
         {% csrf_token %}
@@ -21,5 +21,4 @@
     {{ chart|safe }}
     {% block script %}<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>{% endblock %}
 {% endblock %}
-
 

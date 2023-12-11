@@ -6,5 +6,6 @@ class AdditionForm(forms.Form):
     number3 = forms.IntegerField(label="Y1")
     number4 = forms.IntegerField(label="Y2")
 
-
+class RadiusForm(forms.Form):
+    number1 = forms.IntegerField(label="Radius")
     

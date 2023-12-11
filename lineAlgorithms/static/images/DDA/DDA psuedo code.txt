@@ -1,0 +1,37 @@
+function DDA(x1, x2, y1, y2):
+    xp = []  // List to store x coordinates
+    yp = []  // List to store y coordinates
+
+    // Calculate the differences in x and y
+    dx = x2 - x1
+    dy = y2 - y1
+
+    // Determine the number of steps based on the larger difference
+    if abs(dx) > abs(dy):
+        step = abs(dx)
+    else:
+        step = abs(dy)
+
+    // Handle the case where step is 0
+    if step == 0:
+        return (empty lists)
+
+    // Calculate the x and y increments
+    x_inc = dx / step
+    y_inc = dy / step
+
+    // Initialize loop variable
+    inc = abs(step)
+
+    // Loop to generate coordinates
+    for i in range(inc):
+        // Update coordinates based on increments
+        x1 = x1 + x_inc
+        y1 = y1 + y_inc
+
+        // Append rounded coordinates to the lists
+        xp.append(round(x1))
+        yp.append(round(y1))
+
+    // Return the lists of coordinates
+    return (xp, yp)
