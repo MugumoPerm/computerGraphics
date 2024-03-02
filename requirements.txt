@@ -505,7 +505,8 @@ protobuf==4.21.12
 pscript==0.7.7
 psutil==5.9.8
 psycogreen==1.0.1
-psycopg2-binary==2.9.9
+psycopg==3.1.17
+psycopg2==2.9.9
 psycopg2cffi==2.8.1
 ptyprocess==0.7.0
 publicsuffix2==2.20191221
